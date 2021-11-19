@@ -1,0 +1,16 @@
+dependencies:
+- app_id: C6ZZPAPN4YYF5NVJ
+  version: {dev: false}
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+startup: {type: module, module: validator}
+package_name: Validator
+allow_embedding: false
+name: Clone of Validator
+runtime_options: {version: 2, server_version: python3-full, client_version: '3'}
+metadata: {}
+startup_form: null
+db_schema: {}
+renamed: true
