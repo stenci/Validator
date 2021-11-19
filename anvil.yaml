@@ -8,7 +8,7 @@ services:
 startup: {type: module, module: validator}
 package_name: Validator
 allow_embedding: false
-name: Clone of Validator
+name: Validator
 runtime_options: {version: 2, server_version: python3-full, client_version: '3'}
 metadata: {}
 startup_form: null
