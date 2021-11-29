@@ -70,6 +70,9 @@ class Validator:
             component.set_event_handler('lost_focus', self._check_one_component)
 
     def _check_one_component(self, sender, event_name, **e):
+        if not sender.visible:
+            return True
+
         for rule in self._all_rules[sender]:
             if not rule['validating_function']():
                 return False
