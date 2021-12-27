@@ -64,10 +64,10 @@ class Validator:
             rule['error_label'].visible = False
 
         for e in rule['events']:
-            component.set_event_handler(e, self._check_one_component)
+            component.add_event_handler(e, self._check_one_component)
 
         if rule['format'] and 'lost_focus' not in rule['events']:
-            component.set_event_handler('lost_focus', self._check_one_component)
+            component.add_event_handler('lost_focus', self._check_one_component)
 
     def _check_one_component(self, sender, event_name, **e):
         if not sender.visible:
@@ -358,7 +358,7 @@ class Validator:
 
         def check_this_component(**e):
             if type(component) is TextBox:
-                is_valid = component.text != ''
+                is_valid = component.text not in ['', None]
             elif type(component) is DatePicker:
                 is_valid = component.date is not None
             else:
