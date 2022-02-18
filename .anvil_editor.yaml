@@ -1,5 +1,8 @@
 unique_ids:
   forms: {}
-  modules: {validator: LMRSESE26MO5CB3GUGYNBUYFBKCZ4UDE}
+  modules:
+    validator: LMRSESE26MO5CB3GUGYNBUYFBKCZ4UDE
   server_modules: {}
-  assets: {standard-page.html: TQC3Q6VZR55TBKUMOF5D6YHNFXWMRUQW, theme.css: IW2UJPZH7CJWKNYTKTAAEXJSX3AG6V3B}
+  assets:
+    standard-page.html: TQC3Q6VZR55TBKUMOF5D6YHNFXWMRUQW
+    theme.css: IW2UJPZH7CJWKNYTKTAAEXJSX3AG6V3B

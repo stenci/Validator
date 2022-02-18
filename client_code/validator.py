@@ -6,7 +6,7 @@ from anvil import *
 from anvil_extras.popover import popover, pop
 
 
-for component in [TextBox, TextArea, DatePicker]:
+for component in [TextBox, TextArea, DatePicker, DropDown]:
     component.popover = popover
     component.pop = pop
 
@@ -357,10 +357,12 @@ class Validator:
         placement = placement or self._default_placement
 
         def check_this_component(**e):
-            if type(component) is TextBox:
+            if type(component) in (TextBox, TextArea):
                 is_valid = component.text not in ['', None]
             elif type(component) is DatePicker:
                 is_valid = component.date is not None
+            elif type(component) is DropDown:
+                is_valid = component.selected_value and component.selected_value in component.items
             else:
                 raise Exception('Unexpected component type: {}'.format(type(component)))
             self._set_label(is_valid, component, error_label, message, 'Please enter a value', placement)
