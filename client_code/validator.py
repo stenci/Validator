@@ -133,11 +133,14 @@ class Validator:
             except:
                 pass
 
-    def are_all_valid(self):
+    def are_all_valid(self, focus_on_first_invalid_component=True):
         """
         Run the validation on all the components.
         If they are all valid, return True.
         If one or more are not valid, return False and set the focus on the first non valid one.
+        Usually this function is called before saving, and moving the focus helps.
+        Sometimes it is called at every change event, and moving the focus could prevent the
+        user from editing the current input if another input is invalid.
         """
         focus_already_set = False
         is_valid = True
@@ -145,7 +148,7 @@ class Validator:
             one_component_is_valid = self._check_one_component(component, 'are_all_valid')
             if not one_component_is_valid:
                 is_valid = False
-                if not focus_already_set:
+                if focus_on_first_invalid_component and not focus_already_set:
                     try:
                         component.focus()
                         focus_already_set = True
