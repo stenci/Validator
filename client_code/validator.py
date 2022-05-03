@@ -129,6 +129,7 @@ class Validator:
         """
         for component in self._all_rules.keys():
             try:
+                del self._components_with_popover[component]
                 component.pop('destroy')
             except:
                 pass
