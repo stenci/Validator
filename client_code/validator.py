@@ -361,7 +361,7 @@ class Validator:
         placement = placement or self._default_placement
 
         def check_this_component(**e):
-            if type(component) in (TextBox, TextArea):
+            if hasattr(component, 'text'):
                 is_valid = component.text not in ['', None]
             elif type(component) is DatePicker:
                 is_valid = component.date is not None
